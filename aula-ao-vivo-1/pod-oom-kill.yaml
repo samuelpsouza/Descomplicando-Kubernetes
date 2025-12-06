@@ -16,4 +16,23 @@ spec:
       limits:
         memory: "256Mi"
         cpu: "500m"
+    startupProbe:
+      httpGet:
+        path: /startupz
+        port: 8080
+      failureThreshold: 6
+      periodSeconds: 3
+      initialDelaySeconds: 2
+    livenessProbe:
+      httpGet:
+        path: /livez
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 10
+    readinessProbe:
+      httpGet:
+        path: /readyz
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 5
   restartPolicy: Always
