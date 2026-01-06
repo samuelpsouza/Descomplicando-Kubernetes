@@ -50,4 +50,5 @@ spec:
             port: 80
           initialDelaySeconds: 5
           timeoutSeconds: 5
+          successThreshold: 1
           failureThreshold: 3
